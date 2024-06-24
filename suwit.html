@@ -4,17 +4,23 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>suit jawa 2.0</title>
-    <link rel="stylesheet" href="dist/style.css">
-    <link rel="stylesheet" href="dist/output.css">
+    <title>suit indo 2.0</title>
+    <link rel="stylesheet" href="dist/style.css" />
+    <link rel="stylesheet" href="dist/output.css" />
   </head>
-  <body style="background-image:url(./img/bg.png);">
+  <body style="background-image: url(./img/bg.png)">
     <div class="text-center pt-4 w-[560px] m-auto px-7">
-      <h1 class="text-teal-500  text-4xl font-extrabold">WELCOME TO MY WEBSITE</h1>
-    <h2 class="py-4 text-orange-500 font-semibold text-xl animate-bounce">Enjoy the game and have fun 😉</h2>
+      <h1 class="text-teal-500 text-4xl font-extrabold">
+        WELCOME TO MY WEBSITE
+      </h1>
+      <h2 class="py-4 text-orange-500 font-semibold text-xl animate-bounce">
+        Enjoy the game and have fun 😉
+      </h2>
     </div>
     <!-- container -->
-    <div class="min-w-max flex flex-col m-auto justify-center items-center container">
+    <div
+      class="min-w-max flex flex-col m-auto justify-center items-center container"
+    >
       <!-- area komputer -->
       <div class="area-komputer">
         <div id="scoreComputer">Score: 0</div>
@@ -22,36 +28,60 @@
       </div>
       <!-- area player -->
       <div class="area-player">
-        <div class="info w-36 h-14 bg-white ring-2 ring-orange-400 rounded-3xl m-auto text-center font-semibold text-2xl leading-[56px] "></div>
+        <div
+          class="info w-36 h-14 bg-white ring-2 ring-orange-400 rounded-3xl m-auto text-center font-semibold text-2xl leading-[56px]"
+        ></div>
         <div id="scorePlayer">Score: 0</div>
         <ul>
-          <li><img src="img/gajah.png" class="gajah"/></li>
+          <li><img src="img/gajah.png" class="gajah" /></li>
           <li><img src="img/orang.png" class="orang" /></li>
           <li><img src="img/semut.png" class="semut" /></li>
         </ul>
       </div>
       <!-- notification -->
-      <div class="notif translate-y-[-1000px] transition-all ease-in duration-400 min-h-[510px] min-w-[560px] absolute flex justify-center items-center m-auto bg-slate-100 bg-opacity-40 backdrop-blur-sm rounded-3xl">
+      <div
+        class="notif translate-y-[-1000px] transition-all ease-in duration-400 min-h-[510px] min-w-[560px] absolute flex justify-center items-center m-auto bg-slate-100 bg-opacity-40 backdrop-blur-sm rounded-3xl"
+      >
         <div class="h-40 w-80 bg-white rounded-3xl z-10 mt-5 shadow-xl">
-          <div  class="win m-auto pt-4 text-2xl text-center text-orange-500 font-semibold ">
-          🎉 Thank You 🎉</div>
-          <p class="px-4 m-auto py-4 text-xl text-center font-semibold">Play Again ?</p>
+          <div
+            class="win m-auto pt-4 text-2xl text-center text-orange-500 font-semibold"
+          >
+            🎉 Thank You 🎉
+          </div>
+          <p class="px-4 m-auto py-4 text-xl text-center font-semibold">
+            Play Again ?
+          </p>
           <div class="flex justify-between font-semibold">
-            <button class="no px-8 py-1 rounded-xl mx-4 hover:bg-red-500 bg-red-400">No</button>
-            <button class="yes px-8 py-1 rounded-xl mx-4 hover:bg-cyan-500 bg-cyan-300">Yes</button>
+            <button
+              class="no px-8 py-1 rounded-xl mx-4 hover:bg-red-500 bg-red-400"
+            >
+              No
+            </button>
+            <button
+              class="yes px-8 py-1 rounded-xl mx-4 hover:bg-cyan-500 bg-cyan-300"
+            >
+              Yes
+            </button>
           </div>
         </div>
       </div>
 
       <!-- penutup -->
-      <div class="card scale-0 transition-all ease-in duration-500 min-h-[510px] min-w-[560px] absolute flex justify-center items-center m-auto bg-slate-100 bg-opacity-15 backdrop-blur-sm rounded-3xl">
+      <div
+        class="card scale-0 transition-all ease-in duration-500 min-h-[510px] min-w-[560px] absolute flex justify-center items-center m-auto bg-slate-100 bg-opacity-15 backdrop-blur-sm rounded-3xl"
+      >
         <div class="h-44 w-80 bg-white rounded-3xl z-20 mt-5">
-          <div  class="m-auto pt-4 text-3xl text-center text-orange-500 font-semibold ">
-          Thank You 🙏</div>
-          <p class="px-4 m-auto py-5 text-center font-medium">Terima kasih banyak kepada para Player atas partisipasinya dalam permainan ini !!!</p>
+          <div
+            class="m-auto pt-4 text-3xl text-center text-orange-500 font-semibold"
+          >
+            Thank You 🙏
+          </div>
+          <p class="px-4 m-auto py-5 text-center font-medium">
+            Terima kasih banyak kepada para Player atas partisipasinya dalam
+            permainan ini !!!
+          </p>
         </div>
       </div>
-
     </div>
 
     <script src="dist/game.js"></script>

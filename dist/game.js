@@ -8,100 +8,100 @@ function getPilihanComputer() {
 // menentukan rules
 function getInfo(comp, player) {
   if (player == comp) return "SERI!";
-  if (player == "gajah") return (comp == "orang") ? "MENANG!" : "KALAH!";
+  if (player == "gajah") return comp == "orang" ? "MENANG!" : "KALAH!";
 
-  if (player == "orang") return (comp == "semut") ? "MENANG!" : "KALAH!";
+  if (player == "orang") return comp == "semut" ? "MENANG!" : "KALAH!";
 
-  if (player == "semut") return (comp == "gajah") ? "MENANG!" : "KALAH!";
+  if (player == "semut") return comp == "gajah" ? "MENANG!" : "KALAH!";
 }
 
-  // menentukan rules cara 2
-const DRAW = "draw"
-const PWin = "player win"
-const CWin = "computer win"
-  function getHasil(comp, player) {
-  let result = ''
-  if(player == "gajah"){
+// menentukan rules cara 2
+const DRAW = "draw";
+const PWin = "player win";
+const CWin = "computer win";
+function getHasil(comp, player) {
+  let result = "";
+  if (player == "gajah") {
     switch (comp) {
       case "orang":
-        result = PWin
+        result = PWin;
         break;
-      
-        case "gajah":
-          result = DRAW
-          break;
-    
-        case "semut":
-          result = CWin
-          break;
+
+      case "gajah":
+        result = DRAW;
+        break;
+
+      case "semut":
+        result = CWin;
+        break;
     }
   }
 
-  if(player == "orang"){
+  if (player == "orang") {
     switch (comp) {
       case "semut":
-        result = PWin
+        result = PWin;
         break;
 
-        case "orang":
-          result = DRAW
-          break;
-    
-        case "gajah":
-          result = CWin
-          break;
+      case "orang":
+        result = DRAW;
+        break;
+
+      case "gajah":
+        result = CWin;
+        break;
     }
   }
 
-  if(player == "semut"){
+  if (player == "semut") {
     switch (comp) {
       case "gajah":
-        result = PWin
+        result = PWin;
         break;
-      
-        case "semut":
-          result = DRAW
-          break;
 
-        case "orang":
-          result = CWin
-          break;
+      case "semut":
+        result = DRAW;
+        break;
+
+      case "orang":
+        result = CWin;
+        break;
     }
   }
-  scoring(result)
+  scoring(result);
 }
 
 // hitung score
-const scoreComputer = document.getElementById("scoreComputer")
-const scorePlayer = document.getElementById("scorePlayer")
+const scoreComputer = document.getElementById("scoreComputer");
+const scorePlayer = document.getElementById("scorePlayer");
 
-let initScoreComputer = 0
-let initScorePlayer = 0
+let initScoreComputer = 0;
+let initScorePlayer = 0;
 
-function scoring(result){
+function scoring(result) {
   setTimeout(function () {
     // alert(result)
-    if(result=="player win"){
-          initScorePlayer++
-          scorePlayer.innerHTML ="Score: " + initScorePlayer
-        if(initScorePlayer >= 3){
-          for(let i = 0; i <= pilihan.length; i++){
-            let notif = document.querySelector(".notif")
-            notif.classList.remove("translate-y-[-1000px]")
-          }
-            playAgain(PWin)
+    if (result == "player win") {
+      initScorePlayer++;
+      scorePlayer.innerHTML = "Score: " + initScorePlayer;
+      if (initScorePlayer >= 3) {
+        for (let i = 0; i <= pilihan.length; i++) {
+          let notif = document.querySelector(".notif");
+          notif.classList.remove("translate-y-[-1000px]");
+        }
+        playAgain(PWin);
       }
     }
 
-    if(result=="computer win"){
-          initScoreComputer++
-          scoreComputer.innerHTML ="Score: " + initScoreComputer 
-        if(initScoreComputer >= 3){
-          for(let i = 0; i <= pilihan.length; i++){
-            let notif = document.querySelector(".notif")
-            notif.classList.remove("translate-y-[-1000px]")
-          }
-          playAgain(CWin) 
+    if (result == "computer win") {
+      initScoreComputer++;
+      scoreComputer.innerHTML = "Score: " + initScoreComputer;
+      if (initScoreComputer >= 3) {
+        for (let i = 0; i <= pilihan.length; i++) {
+          let notif = document.querySelector(".notif");
+          notif.classList.remove("translate-y-[-1000px]");
+        }
+        playAgain(CWin);
       }
     }
   }, 1100);
@@ -123,12 +123,13 @@ function putar() {
   }, 100);
 }
 
+// menetukan pilihan player
 const pilihan = document.querySelectorAll("li img");
 pilihan.forEach(function (pil) {
   pil.addEventListener("click", function () {
     const pilihanComputer = getPilihanComputer();
     const pilihanPlayer = pil.className;
-    const hasil = getHasil(pilihanComputer, pilihanPlayer);  
+    const hasil = getHasil(pilihanComputer, pilihanPlayer);
     const output = getInfo(pilihanComputer, pilihanPlayer);
 
     putar();
@@ -137,36 +138,35 @@ pilihan.forEach(function (pil) {
       const imgComputer = document.querySelector(".img-computer");
       imgComputer.setAttribute("src", "img/" + pilihanComputer + ".png");
       let info = document.querySelector(".info");
-      info.innerHTML=output
+      info.innerHTML = output;
     }, 1000);
   });
 });
 
 // fitur play again
-function playAgain(winner){
-  let notif = document.querySelector(".notif")
-  const yes = document.querySelector(".yes")
-  const no = document.querySelector(".no")
-  const win = document.querySelector(".win")
+function playAgain(winner) {
+  let notif = document.querySelector(".notif");
+  const yes = document.querySelector(".yes");
+  const no = document.querySelector(".no");
+  const win = document.querySelector(".win");
   let info = document.querySelector(".info");
 
-  win.innerHTML = "🎉 " + winner + " 🎉"  
-  notif.addEventListener("click", function(event){
-    if(event.target == yes){
-      notif.classList.add("translate-y-[-1000px]")
-      initScoreComputer = 0
-      initScorePlayer = 0
-      scorePlayer.innerHTML ="Score: " + initScorePlayer
-      scoreComputer.innerHTML ="Score: " + initScoreComputer
-      info.innerHTML = ""
-      
-    } else if(event.target == no){
-      notif.classList.toggle("translate-y-[-1000px]")
-      const card = document.querySelector(".card")
-      card.classList.remove("scale-0")
-      card.classList.add("scale-100")
+  win.innerHTML = "🎉 " + winner + " 🎉";
+  notif.addEventListener("click", function (event) {
+    if (event.target == yes) {
+      notif.classList.add("translate-y-[-1000px]");
+      initScoreComputer = 0;
+      initScorePlayer = 0;
+      scorePlayer.innerHTML = "Score: " + initScorePlayer;
+      scoreComputer.innerHTML = "Score: " + initScoreComputer;
+      info.innerHTML = "";
+    } else if (event.target == no) {
+      notif.classList.toggle("translate-y-[-1000px]");
+      const card = document.querySelector(".card");
+      card.classList.remove("scale-0");
+      card.classList.add("scale-100");
     }
-  })
+  });
 }
 
 // const pGajah = document.querySelector(".gajah");
@@ -207,5 +207,3 @@ function playAgain(winner){
 //   const info = document.querySelector(".info");
 //   info.innerHTML = hasil;
 // });
-
-
